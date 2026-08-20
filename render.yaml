@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fpl-ai-advisor
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.address 0.0.0.0 --server.port $PORT
+    envVars:
+      - key: FPL_TEAM_ID
+        value: "1643829"
+      - key: FPL_API_BASE
+        value: "https://fantasy.premierleague.com/api"
